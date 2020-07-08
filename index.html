@@ -1,6 +1,8 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
+            /* Default styles used for the index page and most elements */
             body {
                 color: #2A3439;
                 background-color: #EEEEEE;
@@ -9,8 +11,6 @@
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 text-align: left;
                 line-height: 1.2;   
-                margin-left: 10%;
-                margin-right: 10%;
             }
             h1 {
               font-size: 32px;
@@ -47,57 +47,121 @@
             p {
                 line-height: 1.6;
             }
-            .left-menu {
-                text-align: left;
-                margin-right: 25%;
-                margin-left: 15%;
-                margin-top: 15%;
+            /* Classes for the Logo and other bespoke elements */
+            .logo {
+                display: block;
             }
-            .left-menu p {
-                line-height: 1.3;
+
+
+            /* Used CSS Float for responsiveness as it has the best backwards compatibility compared to Grid and Flexbox which are newer technologies */
+            .column {
+                float: left;
             }
-            .header-left {
-                margin-right: auto;
-                margin-left: auto;
-                width: 50%;
+            .column.side {
+                width: 15%;
+                padding-left: 20px;
+                padding-right: 50px;
+                display: none;
             }
-            .header-main{
-                margin-left: 4%;
+            .column.main {
+                width: 60%;
             }
-            .grid-container {
-              display: grid;
-              grid-template-columns: 15% auto 15%;
-              grid-gap: 10px;
-              padding: 5%;
-            }
-            .content {
-                margin-left: 4%;
+
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
             }
             @media (max-width: 600px) {
-                .grid-container {
-                    grid-template-columns: auto;
+                body {
+                    margin-left: 8%;
+                    margin-right: 8%;
+                    margin-top: 5%;
+                }
+                .column.main {
+                    width: 100%;
                 }
             }
+
+            @media (min-width: 600px) {
+                body {
+                    margin-left: 6%;
+                    margin-right: 6%;
+                    margin-top: 3%;
+                }
+                .column.main {
+                    width: 100%;
+                }
+            }
+
+            @media (min-width: 992px) {
+                body {
+                    margin-left: 10%;
+                    margin-right: 10%;
+                    margin-top: 3%;
+                }
+                .column.side {
+                    display: block;
+                }
+                .column.main {
+                    width: 60%;
+                 }
+                .logo {
+                    margin-right: auto;
+                    margin-left: auto;
+                    margin-top: 14%;
+                    width: 76px;
+                    height: 113px;
+                }
+            }
+            @media (min-width: 1600px) {
+                body {
+                    margin-left: 20%;
+                    margin-right: 20%;
+                    margin-top: 3%;
+                }
+                .logo {
+                    margin-right: auto;
+                    margin-left: auto;
+                    width: 95px;
+                    height: 142px;
+                }
+            @media (min-width: 2560px) {
+                body {
+                    margin-left: 25%;
+                    margin-right: 25%;
+                    margin-top: 3%;
+                }
+                .logo {
+                    margin-right: auto;
+                    margin-left: auto;
+                    width: 95px;
+                    height: 142px;
+                }
+            }
+        }
         </style>
     </head>
     <body>
-        <div class="grid-container">
         <!-- Header Row -->
-                <div class="header-left">
-                    <img src="alpine_logo.jpg" alt="Logo" width="100" height=>
-                </div>
+    <div class="row">
+     <div class="column side">
+             <img src="alpine_logo.svg" alt="Lwogo" class="logo">
+    </div>
 
-                <div class="header-main">
+                <div class="column main">
                     <h1>Alpine West Midlands Ltd.</h1>
                     <h2>The Classic Rootes Group Specialist</h2>
                     <p>We offer over 500 separate ,spares for the Sunbeam Alpine and Tiger sportscars.</p>
                 </div>
 
-                <div class="header-right">
-                </div>
+    <div class="column side">
+    </div>    
+    </div>
 
-        <!-- Main Row -->
-        <div class="left-menu">
+    <!-- Main Row -->
+    <div class="row">
+        <div class="column side">
             <p>Site last updated 07/07/2020</p>
             <hr>
             <p>Reconditioned Caliper exchange service.</p>
@@ -107,7 +171,7 @@
             <hr>
             <p>Email Us</p>
         </div>
-           <div class="content">
+        <div class="column main">
             <h2>Our Background</h2>
             <p>
                 We have been established for 34 years and we aim to give our customers the best value possible - quality parts at competitive prices.  We  keep a constant check on quality and fit.  Check the F.A.Q. page for regular tips and advice. Our company firmly believes that  "The customer comes first" and we are committed to constant updating of our product range and customer service.
@@ -131,13 +195,6 @@
             <h2>Contact Us</h2>
             <p>If you need to enquire about goods or make an order you can do so by post or mail.
                 Our contact details are as follow:
-
-                eMail           alpine.westmids@sunbeam-alpine.co.uk 
-                
-                Telephone / Fax     U.K.        01527 401498         
-                                    Intl.    +44 1527 401498
-                
-                Please note that we operate solely as a mail order business and for practical reasons we are unable to meet customers at our premises.
             </p>
             <table class="contact">
                 <tr>
@@ -156,9 +213,10 @@
                     <td>+44 1527 401498</td>
                 </tr>
               </table>
-           </div>
-           <div class="padding">
-           </div>
         </div>
+
+        <div class="column side">
+        </div>
+    </div> 
     </body>
 </html>
